@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/deploy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="布防"
+        android:layout_above="@+id/tv_deflog"
+        android:layout_alignLeft="@+id/btn_sdcap"
+        android:layout_alignStart="@+id/btn_sdcap">
+
+    </Button>
+
+    <Button
+        android:id="@+id/revoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="撤防"
+        android:layout_above="@+id/tv_deflog"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="96dp"
+        android:layout_marginEnd="96dp">
+    </Button>
+
+    <TextView
+        android:text="布撤防日志"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tv_deflog"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/tv_sdlog"
+        android:layout_alignStart="@+id/tv_sdlog" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取SD卡容量"
+        android:id="@+id/btn_sdcap"
+        android:layout_above="@+id/tv_sdlog"
+        android:layout_toLeftOf="@+id/revoke"
+        android:layout_toStartOf="@+id/revoke" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="获取SD卡状态日志"
+        android:id="@+id/tv_sdlog"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/btn_sdcap"
+        android:layout_alignEnd="@+id/btn_sdcap"
+        android:layout_marginBottom="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备号"
+        android:id="@+id/tv_callID"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/tv_deflog"
+        android:layout_alignStart="@+id/tv_deflog" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_callID"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/deploy"
+        android:layout_alignStart="@+id/deploy"
+        android:layout_alignRight="@+id/revoke"
+        android:layout_alignEnd="@+id/revoke"
+        android:text="2028259" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备密码"
+        android:id="@+id/tv_callpwd"
+        android:layout_below="@+id/et_callID"
+        android:layout_alignLeft="@+id/tv_callID"
+        android:layout_alignStart="@+id/tv_callID" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_callPwd"
+        android:layout_alignTop="@+id/tv_callpwd"
+        android:layout_alignLeft="@+id/et_callID"
+        android:layout_alignStart="@+id/et_callID"
+        android:layout_alignRight="@+id/et_callID"
+        android:layout_alignEnd="@+id/et_callID"
+        android:text="qwe123" />
+
+
+</RelativeLayout>

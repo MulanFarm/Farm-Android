@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/shexiangtou"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <com.xcc.mylibrary.swipelistview.SwipeListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_margin="@dimen/y20"
+        android:background="@drawable/select_10green_btn_ring"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/add" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="@string/tjsxt"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textSize2" />
+    </LinearLayout>
+</LinearLayout>

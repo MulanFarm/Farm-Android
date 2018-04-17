@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/select_item_white_bg"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25"
+        android:paddingTop="@dimen/y20">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/y80"
+            android:layout_height="@dimen/y85"
+            android:layout_marginRight="@dimen/x20"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/textSize1" />
+
+            <TextView
+                android:id="@+id/textContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y15"
+                android:textColor="@color/textColor_"
+                android:textSize="@dimen/textSize_1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/itemRightTxt"
+        android:layout_width="200px"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="删除"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/y30" />
+</LinearLayout>

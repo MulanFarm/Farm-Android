@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/shezhi"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/layoutWifi"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/f_jzgk"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <com.xcc.mylibrary.widget.ShSwitchView
+            android:id="@+id/switchView"
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/y60"
+            app:outerStrokeWidth="0px"
+            app:tintColor="@color/colorAccent" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/layoutChangePwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/xiugaimima"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/layoutClear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/qingchuhuancun"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/textClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/layoutUpdata"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/chengxuxinxi"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/textLev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y90"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y80"
+        android:background="@drawable/select_10green_btn"
+        android:text="@string/tuichudenglu"
+        android:textColor="@color/activityStageBg"
+        android:textSize="@dimen/textSize2" />
+</LinearLayout>

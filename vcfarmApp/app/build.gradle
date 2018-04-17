@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'vcfarmApp'
+            keyPassword 'vcfarm.moc.123'
+            storeFile file('vcfarmApp.jks')
+            storePassword 'vcfarm.moc.123'
+        }
+//        release {
+//            keyAlias 'vcfarmApp'
+//            keyPassword 'vcfarm.moc.123'
+//            storeFile file('E:/AndroidStudioWork/vcfarmApp/vcfarmApp.jks')
+//            storePassword 'vcfarm.moc.123'
+//        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.daweichang.vcfarm"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            multiDexEnabled true
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (project.android.defaultConfig.multiDexEnabled) {
+            if (dx.additionalParameters == null) {
+                dx.additionalParameters = []
+            }
+            dx.additionalParameters += '--minimal-main-dex'
+            // for test multidex dex , here set max idx 10000, this apk total methods is about 22251.
+            dx.additionalParameters += '--set-max-idx-number=10000'
+            dx.additionalParameters += '--multi-dex'
+        }
+    }
+}
+apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile project(':mylibrary')
+    compile project(':p2pcore')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'cn.finalteam:galleryfinal:1.4.8.7'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+}

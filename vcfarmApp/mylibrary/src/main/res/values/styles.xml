@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Dialog_NoBg" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:disabledAlpha">100</item>
+        <item name="android:windowBackground">@color/on_white0</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Dialog_DateTime" parent="android:style/Theme.Holo.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:disabledAlpha">100</item>
+        <item name="android:windowBackground">@color/on_white0</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

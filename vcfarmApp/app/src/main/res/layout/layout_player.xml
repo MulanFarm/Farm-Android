@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/palyLayouta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.p2p.core.P2PView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textMsga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|left"
+        android:padding="@dimen/y10"
+        android:textColor="@color/activityStageBg"
+        android:textSize="@dimen/y30" />
+
+    <ImageView
+        android:id="@+id/imgSwitcha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginRight="@dimen/x10"
+        android:src="@drawable/switch_ico" />
+</RelativeLayout>

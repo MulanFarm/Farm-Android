@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/xiugaimima"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editOldPwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/activityStageBg"
+        android:hint="@string/qsrjmm"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:paddingLeft="@dimen/x30"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColorHint" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <EditText
+        android:id="@+id/editPwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:background="@color/activityStageBg"
+        android:hint="@string/qsrxmm"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:paddingLeft="@dimen/x30"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColorHint" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <EditText
+        android:id="@+id/editPwd2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:background="@color/activityStageBg"
+        android:hint="@string/qzcsrxmm"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:paddingLeft="@dimen/x30"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColorHint" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y90"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/select_10green_btn"
+        android:text="@string/wancheng"
+        android:textColor="@color/activityStageBg"
+        android:textSize="@dimen/textSize2" />
+</LinearLayout>

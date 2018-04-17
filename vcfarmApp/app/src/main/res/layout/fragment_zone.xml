@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/dot"
+            android:layout_width="@dimen/y20"
+            android:layout_height="@dimen/y20"
+            android:layout_alignEnd="@+id/imgBack"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/imgBack"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@drawable/shape_15white"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#81CA01"
+            android:textSize="@dimen/y17" />
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x25"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/bell" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/wode"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+
+        <TextView
+            android:id="@+id/imgR"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y38"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shape_10white_ring"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x12"
+            android:paddingRight="@dimen/x12"
+            android:text="@string/qiandao"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/textSize_2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutMsg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y293"
+        android:layout_marginBottom="@dimen/y20"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <LinearLayout
+            android:layout_width="@dimen/y117"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.xcc.mylibrary.widget.photoView.PhotoView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/y117"
+                android:layout_height="@dimen/y117"
+                android:layout_marginRight="@dimen/x25"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/yiqiandao_tian"
+                android:textColor="@color/activityStageBg"
+                android:textSize="@dimen/y22" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N"
+                android:textColor="@color/activityStageBg"
+                android:textSize="@dimen/textSize1" />
+
+            <TextView
+                android:id="@+id/textEitd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y25"
+                android:drawableLeft="@mipmap/edit"
+                android:drawablePadding="@dimen/x15"
+                android:text="@string/bianjiziliao"
+                android:textColor="@color/activityStageBg"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/x15"
+            android:drawableRight="@mipmap/arrow_right_white"
+            android:text="@string/gerenzhuye"
+            android:textColor="@color/activityStageBg"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutNotes"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/notes"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/bijizhongxin"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+    <LinearLayout
+        android:id="@+id/layoutWallet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/wallet"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/wodeqianbao"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+    <LinearLayout
+        android:id="@+id/layoutAbout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/about"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/guanyuwomen"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+    <LinearLayout
+        android:id="@+id/layoutSetting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/set"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/shezhi"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+
+</LinearLayout>

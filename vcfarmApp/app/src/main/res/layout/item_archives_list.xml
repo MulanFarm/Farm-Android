@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/select_item_white_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y15"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25"
+        android:paddingTop="@dimen/y20">
+
+        <TextView
+            android:id="@+id/textType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/flag_big"
+            android:drawablePadding="@dimen/x15"
+            android:gravity="center_vertical"
+            android:text="宠物"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/y30" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:maxLines="1"
+            android:text="宠物"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/y30" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y15"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:id="@+id/textMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x70"
+            android:text="@string/pinzhong_"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/textAge"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_weight="1"
+            android:text="@string/sui"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chuangjianshijian_"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y26" />
+    </LinearLayout>
+</LinearLayout>

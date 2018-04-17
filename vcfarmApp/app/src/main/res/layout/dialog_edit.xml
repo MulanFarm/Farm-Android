@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout1"
+    android:layout_width="@dimen/xhdpi300d"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/qsrlr"
+            android:padding="@dimen/y20"
+            android:textColor="@color/textColor_"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="@dimen/textSize1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/xhdpi50d"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_l_xml"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/onTextBlue"
+            android:textSize="@dimen/xhdpi16d" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/line2" />
+
+        <TextView
+            android:id="@+id/textCancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/xhdpi50d"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_r_xml"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#000"
+            android:textSize="@dimen/xhdpi16d" />
+    </LinearLayout>
+
+</LinearLayout>

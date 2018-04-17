@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/palyLayouta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <com.p2p.core.P2PView
+        android:id="@+id/pview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textMsga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|left" />
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/imgBack"
+            android:gravity="center_vertical"
+            android:text="@string/wodebiji"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"
+            android:src="@mipmap/arrow_left" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/x33"
+        android:paddingRight="@dimen/x33"
+        android:paddingTop="@dimen/y35"
+        android:text="标题"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/y36" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:background="@color/line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/y35"
+            android:paddingLeft="@dimen/x25"
+            android:paddingRight="@dimen/x25"
+            android:paddingTop="@dimen/y35" />
+    </ScrollView>
+</LinearLayout>

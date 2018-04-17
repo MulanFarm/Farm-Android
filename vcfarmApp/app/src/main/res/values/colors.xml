@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#76B701</color>
+    <color name="colorPrimaryDark">#76B701</color>
+    <color name="colorAccent">#76B701</color>
+    <color name="colorAccent_">#BBDF7B</color>
+    <color name="activityBg">#F5F5F5</color>
+    <color name="activityStageBg">#FffFFf</color>
+    <color name="line">#DCDCDC</color>
+
+    <color name="textColor">#7E7E7E</color>
+    <color name="textColor_">#666666</color>
+    <color name="textColorBlack">#323232</color>
+    <color name="textColorHint">#909090</color>
+    <color name="textColorWhile">#FFFFF8</color>
+
+    <color name="black66">#66000000</color>
+    <color name="black33">#33000000</color>
+
+    <color name="black"> #000000</color>
+    <color name="white"> #FFFFFF</color>
+</resources>

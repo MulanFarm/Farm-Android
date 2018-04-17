@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/welcome1"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.xcc.mylibrary.widget.indicaor.FlycoPageIndicaor
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/y104"
+        app:fpi_cornerRadius="@dimen/y22"
+        app:fpi_gap="@dimen/x20"
+        app:fpi_selectRes="@drawable/circle1"
+        app:fpi_unselectRes="@drawable/circle2" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/x150"
+        android:layout_height="@dimen/y48"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/y164"
+        android:background="@drawable/shape_15white"
+        android:text="@string/lijitiyan"
+        android:textColor="#3B70CE"
+        android:textSize="@dimen/y30"
+        android:visibility="gone" />
+</RelativeLayout>

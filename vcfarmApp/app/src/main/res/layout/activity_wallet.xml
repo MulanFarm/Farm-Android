@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/wodeqianbao"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/y20"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/activityStageBg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/y45"
+        android:paddingTop="@dimen/y35">
+
+        <com.xcc.mylibrary.widget.photoView.RoundedImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/y157"
+            android:layout_height="@dimen/y157"
+            app:is_oval="true" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginTop="@dimen/y20"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y34" />
+
+        <TextView
+            android:id="@+id/textMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/gold"
+            android:drawablePadding="@dimen/x5"
+            android:gravity="bottom"
+            android:text="@string/zongzichan_"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y30" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y90"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/select_10green_btn_"
+        android:text="@string/chongzhi"
+        android:textColor="@color/activityStageBg"
+        android:textSize="@dimen/textSize2" />
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y90"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/select_10green_btn_ring"
+        android:text="@string/fukuan"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textSize2" />
+</LinearLayout>

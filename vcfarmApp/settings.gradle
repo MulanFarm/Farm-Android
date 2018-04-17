@@ -1,0 +1,2 @@
+include ':mylibrary', ':app', ':p2pcore'
+//include ':appLogin', ':appShow'

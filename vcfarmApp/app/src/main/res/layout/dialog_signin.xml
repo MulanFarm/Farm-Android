@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x400"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_20white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/y30">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/surport" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y38"
+        android:text="@string/qdcgjxjyb"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/textSize" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y18">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mrqdlxd"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize_1" />
+
+        <TextView
+            android:id="@+id/textNumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textSize_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tian"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize_1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="@dimen/y50"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textOk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/y30"
+        android:text="@string/wozhidaola"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textSize" />
+</LinearLayout>

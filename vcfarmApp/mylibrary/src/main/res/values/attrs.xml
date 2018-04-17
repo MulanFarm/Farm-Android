@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="fillColor" format="color" />
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="EdgeSize" format="dimension" />
+        <attr name="EdgeFlag" format="enum" />
+        <attr name="ShadowLeft" format="reference" />
+        <attr name="ShadowRight" format="reference" />
+        <attr name="ShadowBottom" format="reference" />
+    </declare-styleable>
+    <attr name="SwipeBackLayoutStyle" format="reference" />
+    <!--<attr name="type">-->
+    <!--<enum name="circle" value="0" />-->
+    <!--<enum name="round" value="1" />-->
+    <!--</attr>-->
+    <!--<declare-styleable name="RoundImageView">-->
+    <!--<attr name="borderRadius" format="dimension" />-->
+    <!--<attr name="type" />-->
+    <!--</declare-styleable>-->
+    <declare-styleable name="ShSwitchView">
+        <attr name="tintColor" format="reference|color" />
+        <attr name="outerStrokeWidth" format="reference|dimension" />
+        <attr name="shadowSpace" format="reference|dimension" />
+    </declare-styleable>
+    <declare-styleable name="LineView">
+        <attr name="fillColor" />
+        <attr name="fillLeft" format="dimension" />
+        <attr name="fillRight" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="round_background" format="boolean" />
+        <attr name="is_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+    <declare-styleable name="FlycoPageIndicaor">
+        <!-- indicator width, unit dp,default 6dp -->
+        <attr name="fpi_width" format="dimension" />
+        <!-- indicator height,unit dp,default 6dp -->
+        <attr name="fpi_height" format="dimension" />
+        <!-- indicator space between two indicators,unit dp,default 6dp -->
+        <attr name="fpi_gap" format="dimension" />
+        <!-- width of the stroke used to draw the indicators,default 0dp -->
+        <attr name="fpi_strokeWidth" format="dimension" />
+        <!-- color of the stroke used to draw the indicators,default "#ffffff" -->
+        <attr name="fpi_strokeColor" format="color" />
+        <!-- Whether or not the selected indicator snaps to the indicators,default false -->
+        <attr name="fpi_isSnap" format="boolean" />
+        <!-- indicator select color ,default "#ffffff" -->
+        <attr name="fpi_selectColor" format="color" />
+        <!-- indicator unselect color ,default "#88ffffff"  -->
+        <attr name="fpi_unselectColor" format="color" />
+        <!-- indicator corner raduis ,unit dp,default 3dp -->
+        <attr name="fpi_cornerRadius" format="dimension" />
+        <!-- indicator select drawable resource -->
+        <attr name="fpi_selectRes" format="reference" />
+        <!-- indicator unselect drawable resource -->
+        <attr name="fpi_unselectRes" format="reference" />
+    </declare-styleable>
+</resources>

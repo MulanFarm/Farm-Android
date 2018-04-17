@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black33"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/textSex1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center"
+        android:padding="@dimen/y20"
+        android:text="@string/nan"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/textSize1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/textSex2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center"
+        android:padding="@dimen/y20"
+        android:text="@string/nv"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/textSize1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/textCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center"
+        android:padding="@dimen/y20"
+        android:text="@string/quxiao"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/textSize2" />
+</LinearLayout>

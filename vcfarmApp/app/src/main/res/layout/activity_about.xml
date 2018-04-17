@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/guanyuwomen"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y292"
+        android:layout_marginBottom="@dimen/y20"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.xcc.mylibrary.widget.photoView.RoundedImageView
+            android:layout_width="@dimen/y107"
+            android:layout_height="@dimen/y107"
+            android:src="@mipmap/logo"
+            app:corner_radius="@dimen/y20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y15"
+            android:text="@string/app_name"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/y36" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAbout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/about"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/gymlnc"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+    <LinearLayout
+        android:id="@+id/layoutAgree"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/agreement"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/yonghuxieyi"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+
+    <com.xcc.mylibrary.widget.LineView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        app:fillColor="@color/activityStageBg"
+        app:fillLeft="@dimen/x25"
+        app:fillRight="@dimen/x25" />
+
+    <LinearLayout
+        android:id="@+id/layoutMap"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y97"
+        android:background="@drawable/select_item_white_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x25"
+        android:paddingRight="@dimen/x25">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/addddd"
+            android:drawablePadding="@dimen/x15"
+            android:text="@string/dituxiangqin"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow_right" />
+    </LinearLayout>
+</LinearLayout>

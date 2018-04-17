@@ -1,0 +1,426 @@
+package com.p2p.core;
+
+import com.p2p.core.global.Constants;
+import com.p2p.core.utils.MyUtils;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.util.AttributeSet;
+import android.util.FloatMath;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
+import android.view.animation.ScaleAnimation;
+
+public abstract class BaseP2PView extends SurfaceView {
+	public static String contactId;
+	public static String password;
+	Handler myHandler;
+
+	public BaseP2PView(Context context) {
+		super(context);
+	}
+
+	public BaseP2PView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+	}
+
+	protected abstract int getCurrentWidth();
+
+	protected abstract int getCurrentHeight();
+
+	// protected abstract void setSize(int width, int height);
+	protected abstract void setVideoScale(int x, int y, float scale);
+
+	protected abstract boolean MovePicture(int moveX, int moveY);
+
+	protected abstract void StopMoving();
+
+	protected abstract void changeNormalSize();
+
+	private Activity mActivity;
+	private int screen_W, screen_H;// 可见屏幕的宽高度
+	private int current_Top, current_Right, current_Bottom, current_Left;
+	private int start_Top = -1, start_Right = -1, start_Bottom = -1,
+			start_Left = -1;// 初始化默认位置.
+
+	private int start_x, start_y, current_x, current_y;// 触摸位置
+
+	private float beforeLenght, afterLenght;// 两触点距离
+	
+	private float mbeforeLenght, mafterLenght;// 两触点距离
+
+	private float scale_temp;// 缩放比例
+
+	private int iTouchUp = 0;
+
+	/**
+	 * 模式 NONE：无 DRAG：拖拽. ZOOM:缩放
+	 * 
+	 * @author zhangjia
+	 * 
+	 */
+	public enum MODE {
+		NONE, DRAG, ZOOM
+
+	};
+
+	public MODE mode = MODE.NONE;// 默认模式
+
+	private boolean isControl_V = false;// 垂直监控
+
+	private boolean isControl_H = false;// 水平监控
+
+	private ScaleAnimation scaleAnimation;// 缩放动画
+
+	private boolean isScaleAnim = false;// 缩放动画
+
+	private MyAsyncTask myAsyncTask;// 异步动画
+
+	public void setmActivity(Activity mActivity) {
+		this.mActivity = mActivity;
+	}
+
+	/** 可见屏幕高度 **/
+	public void setScreen_H(int screen_H) {
+		this.screen_H = screen_H;
+	}
+
+	/** 可见屏幕宽度 **/
+	public void setScreen_W(int screen_W) {
+		this.screen_W = screen_W;
+	}
+
+	public int getMaxWidth() {
+		return this.getCurrentWidth() * 3;
+	}
+
+	public int getMaxHeight() {
+		return this.getCurrentHeight() * 3;
+	}
+
+	public int getMinWidth() {
+		return this.getCurrentWidth() / 2;
+	}
+
+	public int getMinHeight() {
+		return this.getCurrentHeight() / 2;
+	}
+
+	@Override
+	protected void onLayout(boolean changed, int left, int top, int right,
+			int bottom) {
+		super.onLayout(changed, left, top, right, bottom);
+		if (start_Top == -1) {
+			start_Top = top;
+			start_Left = left;
+			start_Bottom = bottom;
+			start_Right = right;
+		}
+
+	}
+	public int getStartBottonm(){
+		return start_Bottom;
+	}
+
+	/***
+	 * touch 事件
+	 */
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		try{
+			/** 处理单点、多点触摸 **/
+			switch (event.getAction() & MotionEvent.ACTION_MASK) {
+			case MotionEvent.ACTION_DOWN:
+				onTouchDown(event);
+				break;
+			// 多点触摸
+			case MotionEvent.ACTION_POINTER_DOWN:
+				onPointerDown(event);
+				break;
+
+			case MotionEvent.ACTION_MOVE:
+				return onTouchMove(event);
+			case MotionEvent.ACTION_UP:
+				mode = MODE.NONE;
+				iTouchUp = 1;
+				break;
+
+			// 多点松开
+			case MotionEvent.ACTION_POINTER_UP:
+				mode = MODE.NONE;
+				/** 执行缩放还原 **/
+				// if
+				// (this.getWidth()<this.getCurrentWidth(s)&&this.getHeight()<this.getCurrentHeight())
+				// {
+				// this.changeNormalSize();
+				// }
+				if(P2PView.SUPPORT_ZOOM_FOCUS==true){
+					onTouchPointerUp(event);
+				}
+				break;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		};
+		return false;
+	}
+	/**
+	 * 多点松开
+	 */
+    void onTouchPointerUp(MotionEvent event){
+    	mafterLenght= getDistance(event);// 获取两点的距离
+    	float mgapLenght = mafterLenght - mbeforeLenght;// 变化的长度
+    	Log.e("leleprogress", "mgapLenght="+mgapLenght);
+//    	if(mgapLenght>0){
+//    		P2PHandler.getInstance().setZoom(Constants.ZOOM.ZOOM_BIG);
+//    	}else{
+//    		P2PHandler.getInstance().setZoom(Constants.ZOOM.ZOOM_SMALL);
+//    	}
+    	int multiple=0;
+    	if(mgapLenght<-600){
+    		multiple=-4;
+    	}else if(mgapLenght<-400){
+    		multiple=-3;
+    	}else if(mgapLenght<-200){
+    		multiple=-2;
+    	}else if(mgapLenght<0){
+    		multiple=-1;
+    	}else if(mgapLenght<200){
+    		multiple=1;
+    	}else if(mgapLenght<400){
+    		multiple=2;
+    	}else if(mgapLenght<600){
+    		multiple=3;
+    	}else{
+    		multiple=4;
+    	}
+    	myHandler.sendEmptyMessage(multiple);
+    	beforeLenght=afterLenght;
+    	
+    }
+	/** 按下 **/
+	void onTouchDown(MotionEvent event) {
+		mode = MODE.DRAG;
+
+		current_x = (int) event.getRawX();
+		current_y = (int) event.getRawY();
+
+		start_x = (int) event.getRawX();
+		start_y = (int) event.getRawY();
+
+	}
+
+	/** 两个手指 只能放大缩小 **/
+	void onPointerDown(MotionEvent event) {
+		if (event.getPointerCount() == 2) {
+			mode = MODE.ZOOM;
+			beforeLenght =getDistance(event);// 获取两点的距离
+			mbeforeLenght=getDistance(event);
+		}
+	}
+
+	/** 移动的处理 **/
+	boolean onTouchMove(MotionEvent event) {
+		int left = 0, top = 0, right = 0, bottom = 0;
+		if (mode == MODE.DRAG) {
+			current_x = (int) event.getRawX();
+			current_y = (int) event.getRawY();
+			int moveX = current_x - start_x;
+			int moveY = current_y - start_y;
+
+			start_x = current_x;
+			start_y = current_y;
+
+			if (moveX != 0 || moveY != 0) {
+				return this.MovePicture(moveX, moveY);
+			} else if (iTouchUp == 1) {
+				this.StopMoving();
+				iTouchUp = 0;
+				return false;
+			}
+
+		}
+		/** 处理缩放 **/
+		else if (mode == MODE.ZOOM) {
+
+			afterLenght = getDistance(event);// 获取两点的距离
+
+			float gapLenght = afterLenght - beforeLenght;// 变化的长度
+
+			if (Math.abs(gapLenght) > 5f) {
+				scale_temp = afterLenght / beforeLenght;// 求的缩放的比例
+
+				int x, y;
+				x = getCenterX(event);
+				y = getCenterY(event);
+				//this.setScale(scale_temp);
+				beforeLenght = afterLenght;
+                if(P2PView.SUPPORT_ZOOM==true&&P2PView.SUPPORT_ZOOM_FOCUS==false){
+                	this.setVideoScale(x, y, scale_temp);       	
+                }
+			}
+		}
+
+		return true;
+	}
+
+	/** 获取两点的距离 **/
+	float getDistance(MotionEvent event) {
+		float x = event.getX(0) - event.getX(1);
+		float y = event.getY(0) - event.getY(1);
+		return FloatMath.sqrt(x * x + y * y);
+	}
+
+	int getCenterX(MotionEvent event) {
+		// Log.e("Gview","x0" + (int)event.getX(0) + " x1" + (int)event.getX(1)
+		// +" y0 "+ (int)event.getY(0) + " y1 "+ (int)event.getY(1) );
+		return (int) ((event.getX(0) + event.getX(1)) / 2);
+	}
+
+	int getCenterY(MotionEvent event) {
+		return (int) ((event.getY(0) + event.getY(1)) / 2);
+	}
+
+	/** 实现处理拖动 **/
+	private void setPosition(int left, int top, int right, int bottom) {
+		this.layout(left, top, right, bottom);
+	}
+
+	/** 处理缩放 **/
+	void setScale(float scale) {
+
+		// this.setSize(int x, int y, float scale);
+
+		// �Ŵ�
+		int disX = (int) (this.getWidth() * Math.abs(1 - scale)) / 2;
+		int disY = (int) (this.getHeight() * Math.abs(1 - scale)) / 2;
+
+		// this.setSize( (int)(100*scale), (int)(100*scale));
+
+		if (scale > 1 && this.getWidth() <= this.getMaxWidth()) {
+			// this.setSize(this.getWidth()+disX, this.getHeight()+disY);
+			if (this.getHeight() > screen_H) {
+				isControl_V = true;
+			} else {
+				isControl_V = false;
+			}
+
+			if (this.getWidth() > screen_W) {
+				isControl_H = true;
+			} else {
+				isControl_H = false;
+			}
+
+		} else if (scale < 1 && this.getWidth() >= this.getMinWidth()) {
+			if ((this.getWidth() - disX) <= screen_W) {
+				isControl_H = false;
+			}
+
+			if ((this.getHeight() - disY) <= screen_H) {
+				isControl_V = false;
+			}
+
+			if (isControl_H || isControl_V) {
+				// this.setSize(this.getWidth()-disX, this.getHeight()-disY);
+			} else {
+				// this.setSize(this.getWidth()-disX, this.getHeight()-disY);
+				isScaleAnim = true;// �������Ŷ���
+			}
+
+		}
+
+	}
+
+	/***
+	 * 缩放动画处理
+	 */
+	public void doScaleAnim() {
+		myAsyncTask = new MyAsyncTask(screen_W, this.getWidth(),
+				this.getHeight());
+		myAsyncTask.setLTRB(this.getLeft(), this.getTop(), this.getRight(),
+				this.getBottom());
+		myAsyncTask.execute();
+		isScaleAnim = false;// 关闭动画
+	}
+
+	/***
+	 * 回缩动画執行
+	 */
+	class MyAsyncTask extends AsyncTask<Void, Integer, Void> {
+		private int screen_W, current_Width, current_Height;
+
+		private int left, top, right, bottom;
+
+		private float scale_WH;// 宽高的比例
+
+		/** 当前的位置属性 **/
+		public void setLTRB(int left, int top, int right, int bottom) {
+			this.left = left;
+			this.top = top;
+			this.right = right;
+			this.bottom = bottom;
+		}
+
+		private float STEP = 8f;// 步伐
+
+		private float step_H, step_V;// 水平步伐，垂直步伐
+
+		public MyAsyncTask(int screen_W, int current_Width, int current_Height) {
+			super();
+			this.screen_W = screen_W;
+			this.current_Width = current_Width;
+			this.current_Height = current_Height;
+			scale_WH = (float) current_Height / current_Width;
+			step_H = STEP;
+			step_V = scale_WH * STEP;
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			while (current_Width <= screen_W) {
+
+				left -= step_H;
+				top -= step_V;
+				right += step_H;
+				bottom += step_V;
+
+				current_Width += 2 * step_H;
+
+				left = Math.max(left, start_Left);
+				top = Math.max(top, start_Top);
+				right = Math.min(right, start_Right);
+				bottom = Math.min(bottom, start_Bottom);
+				Log.e("jj", "top=" + top + ",bottom=" + bottom + ",left="
+						+ left + ",right=" + right);
+				onProgressUpdate(new Integer[] { left, top, right, bottom });
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onProgressUpdate(final Integer... values) {
+			super.onProgressUpdate(values);
+			mActivity.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					// MovePicture(values[0], values[1], values[2], values[3]);
+					// setSize(values[2] - values[0], values[3] - values[1]);
+				}
+			});
+
+		}
+
+	}
+}

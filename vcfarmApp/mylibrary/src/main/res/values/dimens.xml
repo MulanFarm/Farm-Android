@@ -1,0 +1,38 @@
+<resources>
+
+    <dimen name="xhdpi_10d">-10dp</dimen>
+    <dimen name="xhdpi_30d">-30dp</dimen>
+    <dimen name="xhdpi1d">1dp</dimen>
+    <dimen name="xhdpi2d">2dp</dimen>
+    <dimen name="xhdpi3d">3dp</dimen>
+    <dimen name="xhdpi4d">4dp</dimen>
+    <dimen name="xhdpi5d">5dp</dimen>
+    <dimen name="xhdpi6d">6dp</dimen>
+    <dimen name="xhdpi7d">7dp</dimen>
+    <dimen name="xhdpi8d">8dp</dimen>
+    <dimen name="xhdpi9d">9dp</dimen>
+    <dimen name="xhdpi10d">10dp</dimen>
+    <dimen name="xhdpi11d">11dp</dimen>
+    <dimen name="xhdpi12d">12dp</dimen>
+    <dimen name="xhdpi13d">13dp</dimen>
+    <dimen name="xhdpi14d">14dp</dimen>
+    <dimen name="xhdpi15d">15dp</dimen>
+    <dimen name="xhdpi16d">16dp</dimen>
+    <dimen name="xhdpi18d">18dp</dimen>
+    <dimen name="xhdpi20d">20dp</dimen>
+    <dimen name="xhdpi25d">25dp</dimen>
+    <dimen name="xhdpi30d">30dp</dimen>
+    <dimen name="xhdpi36d">36dp</dimen>
+    <dimen name="xhdpi40d">40dp</dimen>
+    <dimen name="xhdpi44d">44dp</dimen>
+    <dimen name="xhdpi47d">47dp</dimen>
+    <dimen name="xhdpi50d">50dp</dimen>
+    <dimen name="xhdpi58d">58dp</dimen>
+    <dimen name="xhdpi65d">65dp</dimen>
+    <dimen name="xhdpi74d">74dp</dimen>
+    <dimen name="xhdpi90d">90dp</dimen>
+    <dimen name="xhdpi100d">100dp</dimen>
+    <dimen name="xhdpi200d">200dp</dimen>
+    <dimen name="xhdpi300d">300dp</dimen>
+
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.daweichang.vcfarm.activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/layoutFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutBottom" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/layoutBottom"
+        android:background="@color/colorAccent" />
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/activityStageBg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/tab1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginTop="@dimen/y20"
+                android:src="@drawable/select_tab1_xml" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y15"
+                android:text="@string/nongchang"
+                android:textColor="@color/selected_tab_color"
+                android:textSize="@dimen/textSize_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginTop="@dimen/y20"
+                android:src="@drawable/select_tab2_xml" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y15"
+                android:text="@string/dangan"
+                android:textColor="@color/selected_tab_color"
+                android:textSize="@dimen/textSize_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginTop="@dimen/y20"
+                android:src="@drawable/select_tab3_xml" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y15"
+                android:text="@string/zhinan"
+                android:textColor="@color/selected_tab_color"
+                android:textSize="@dimen/textSize_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginTop="@dimen/y20"
+                android:src="@drawable/select_tab4_xml" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y15"
+                android:text="@string/wode"
+                android:textColor="@color/selected_tab_color"
+                android:textSize="@dimen/textSize_2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/palyLayouta"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:visibility="gone">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textMsga"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="bottom|left"-->
+    <!--android:padding="@dimen/y10"-->
+    <!--android:textColor="@color/activityStageBg"-->
+    <!--android:textSize="@dimen/y30" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imgSwitcha"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginBottom="@dimen/y10"-->
+    <!--android:layout_marginRight="@dimen/x10"-->
+    <!--android:src="@drawable/switch_ico" />-->
+    <!--</RelativeLayout>-->
+</RelativeLayout>

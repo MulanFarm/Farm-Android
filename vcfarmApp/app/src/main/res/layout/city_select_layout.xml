@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black33"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activityStageBg"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/y30"
+            android:text="@string/quxiao"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/textSize2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/y30"
+            android:text="@string/queding"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/textSize2" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y400"
+        android:background="@color/activityStageBg"
+        android:orientation="horizontal">
+
+        <com.xcc.mylibrary.widget.PickerScrollView
+            android:id="@+id/pickerView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.xcc.mylibrary.widget.PickerScrollView
+            android:id="@+id/pickerView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.xcc.mylibrary.widget.PickerScrollView
+            android:id="@+id/pickerView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</LinearLayout>

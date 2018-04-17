@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/select_item_white_bg"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/y20"
+    android:paddingLeft="@dimen/x25"
+    android:paddingRight="@dimen/x25"
+    android:paddingTop="@dimen/y20">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/y140"
+        android:layout_height="@dimen/y105"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y20"
+        android:paddingTop="@dimen/y20">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/textSize1" />
+
+        <TextView
+            android:id="@+id/textContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textTitle"
+            android:layout_marginTop="@dimen/y15"
+            android:maxLines="2"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/textSize_1"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textNumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@mipmap/comment"
+            android:gravity="bottom"
+            android:textColor="@color/textColor_"
+            android:textSize="@dimen/y20"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

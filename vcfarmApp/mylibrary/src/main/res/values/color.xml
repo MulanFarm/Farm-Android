@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="onTextBlue">#3382F8</color>
+    <color name="onBlack">#000</color>
+    <color name="on_white0">#00FFFFff</color>
+    <color name="on_white3">#33FFFFff</color>
+    <!-- 淡色线条 -->
+    <color name="line1">#E5E5E5</color>
+    <!-- 深色线条 -->
+    <color name="line2">#B2B2B2</color>
+    <color name="onC32">#323232</color>
+</resources>

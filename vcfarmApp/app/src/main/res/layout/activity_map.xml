@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x50"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/dituxiangqin"
+            android:textColor="@color/textColorWhile"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <com.amap.api.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@id/btnLogin"
+            android:layout_width="@dimen/x130"
+            android:layout_height="@dimen/y60"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@drawable/select_10green_btn_"
+            android:text="导航"
+            android:textSize="@dimen/y32" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activityStageBg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20"
+            android:paddingTop="@dimen/y20"
+            android:text="河北省承德市围场满族蒙古族自治县大头山乡月中" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/y20"
+                android:paddingLeft="@dimen/x20"
+                android:paddingTop="@dimen/y20"
+                android:text="电话：" />
+
+            <TextView
+                android:id="@+id/textTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="phone"
+                android:paddingBottom="@dimen/y20"
+                android:paddingTop="@dimen/y20"
+                android:text="0314-7820003"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
