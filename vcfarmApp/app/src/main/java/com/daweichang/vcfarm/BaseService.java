@@ -27,8 +27,8 @@ public class BaseService {
     // 线上地址
     // public static final String URL = "http://192.168.1.205:911/index.php/Unified/Login/login";
     // 测试地址 旧103.239.247.30:8090
-    public static final String URL = "http://59.110.162.46:8090/farm/controller/api/";
-    public static final String ImgURL = "http://59.110.162.46:8090/farm/controller/api/";
+    public static final String URL = "http://farmapp.daweichang.com/farm/controller/api/";
+    public static final String ImgURL = "http://farmapp.daweichang.com/farm/controller/api/";
 
     private static BaseService baseService;
 

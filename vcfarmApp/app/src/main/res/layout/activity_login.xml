@@ -25,7 +25,7 @@
     <LinearLayout
         android:layout_width="@dimen/x540"
         android:layout_height="@dimen/y162"
-        android:layout_marginTop="@dimen/y230"
+        android:layout_marginTop="@dimen/y210"
         android:background="@drawable/shape_10black66"
         android:orientation="vertical">
 
@@ -42,6 +42,7 @@
             android:inputType="textEmailAddress"
             android:maxLength="30"
             android:paddingLeft="@dimen/y20"
+            android:text="1655661337@qq.com"
             android:textColor="@color/textColorWhile"
             android:textColorHint="@color/textColorWhile"
             android:textSize="@dimen/y34" />
@@ -64,6 +65,7 @@
             android:inputType="textPassword"
             android:maxLength="30"
             android:paddingLeft="@dimen/y20"
+            android:text="hzbzyl1314"
             android:textColor="@color/textColorWhile"
             android:textColorHint="@color/textColorWhile"
             android:textSize="@dimen/y34" />

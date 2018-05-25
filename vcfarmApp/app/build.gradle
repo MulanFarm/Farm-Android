@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd")
+}
+
+def VersionType() {
+    return "release"
+}
+
 android {
     signingConfigs {
         debug {
@@ -8,12 +16,12 @@ android {
             storeFile file('vcfarmApp.jks')
             storePassword 'vcfarm.moc.123'
         }
-//        release {
-//            keyAlias 'vcfarmApp'
-//            keyPassword 'vcfarm.moc.123'
-//            storeFile file('E:/AndroidStudioWork/vcfarmApp/vcfarmApp.jks')
-//            storePassword 'vcfarm.moc.123'
-//        }
+        release {
+            keyAlias 'vcfarmApp'
+            keyPassword 'vcfarm.moc.123'
+            storeFile file('vcfarmApp.jks')
+            storePassword 'vcfarm.moc.123'
+        }
     }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -26,11 +34,27 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+    productFlavors {
+        //渠道号
+        "Tencent" {}//应用宝
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [FARM_CHANNLE_ID: name]
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             multiDexEnabled true
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def fileName = "mulanfarm_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}_${VersionType()}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
         }
     }
     sourceSets {

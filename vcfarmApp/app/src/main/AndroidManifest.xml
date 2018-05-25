@@ -20,6 +20,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="FARM_CHANNLE"
+            android:value="${FARM_CHANNLE_ID}" />
         <activity
             android:name=".activity.StartupActivity"
             android:screenOrientation="portrait">
