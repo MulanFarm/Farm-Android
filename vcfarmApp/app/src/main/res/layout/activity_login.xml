@@ -8,7 +8,6 @@
     android:orientation="vertical">
 
     <com.xcc.mylibrary.widget.photoView.RoundedImageView
-        android:id="@+id/wxLogin"
         android:layout_width="@dimen/y157"
         android:layout_height="@dimen/y157"
         android:layout_marginTop="@dimen/y270"
@@ -28,7 +27,8 @@
         android:layout_height="@dimen/y162"
         android:layout_marginTop="@dimen/y210"
         android:background="@drawable/shape_10black66"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/editName"
@@ -77,7 +77,8 @@
         android:layout_width="@dimen/x540"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/y20"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/textReg"
@@ -112,12 +113,37 @@
         android:background="@drawable/select_btn_black66to33"
         android:text="@string/denglu"
         android:textColor="@color/textColorWhile"
-        android:textSize="@dimen/y34" />
+        android:textSize="@dimen/y34"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/wxLogin"
+            android:layout_width="@dimen/y120"
+            android:layout_height="@dimen/y120"
+            android:layout_centerInParent="true"
+            android:src="@drawable/wechat" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wxLogin"
+            android:layout_centerHorizontal="false"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="微信登录"
+            android:textColor="@color/white" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y70"
+        android:layout_marginBottom="@dimen/y70"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 

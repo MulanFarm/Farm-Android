@@ -22,13 +22,13 @@ public class BaseService {
     /**
      * 联调地址ip更改为:  120.27.212.121
      api文档不再往群里发, 实时地址为:
-     http://120.27.212.121/farm/bin/doc/farm_api.pdf
+     http://farmapp.daweichang.com/bin/doc/farm_api.pdf
      */
     // 线上地址
     // public static final String URL = "http://192.168.1.205:911/index.php/Unified/Login/login";
     // 测试地址 旧103.239.247.30:8090
-    public static final String URL = "http://farmapp.daweichang.com/farm/controller/api/";
-    public static final String ImgURL = "http://farmapp.daweichang.com/farm/controller/api/";
+    public static final String URL = "http://farmapp.daweichang.com/controller/api/";
+    public static final String ImgURL = "http://farmapp.daweichang.com/controller/api/";
 
     private static BaseService baseService;
 

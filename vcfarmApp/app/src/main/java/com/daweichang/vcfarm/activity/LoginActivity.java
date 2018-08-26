@@ -1,14 +1,18 @@
 package com.daweichang.vcfarm.activity;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daweichang.vcfarm.ActivityManager;
@@ -21,6 +25,7 @@ import com.daweichang.vcfarm.mode.LoginMode;
 import com.daweichang.vcfarm.netret.LoginRet;
 import com.daweichang.vcfarm.utils.AESUtils;
 import com.daweichang.vcfarm.widget.ShowToast;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.xcc.mylibrary.KeyBoardUtils;
 import com.xcc.mylibrary.OtherUtils;
 import com.xcc.mylibrary.Sysout;
@@ -40,7 +45,7 @@ import retrofit2.Response;
  */
 public class LoginActivity extends BaseActivity {
     @BindView(R.id.wxLogin)
-    RoundedImageView wxLogin;
+    ImageView wxLogin;
     @BindView(R.id.btnLogin)
     Button btnLogin;
     @BindView(R.id.editName)
@@ -63,6 +68,47 @@ public class LoginActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
+    private BroadcastReceiver wxLoginReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (AppVc.WXLogin.equals(intent.getAction())) {
+                String code = intent.getStringExtra("code");
+
+                Log.d("微信授权登录code：","code = " + code);
+
+//                Call<LoginRet> wxLogin = BaseService.getInstance().getServiceUrl().wxLogin(code);
+//                openLoadDialog(wxLogin);
+//                wxLogin.enqueue(new Callback<LoginRet>() {
+//                    public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
+//                        dismissDialog();
+//                        LoginRet ret = response.body();
+//                        Sysout.out("==登录接口返回成功==");
+//                        Sysout.v("--login--", ret.toString());
+////                        if (ret.result) {
+////                            LoginMode users = ret.data;
+////                            AppVc.getAppVc().setLogin(true);
+////                            AppVc.getAppVc().setLoginMode(users);
+////                            // 跳转
+////                            if (TextUtils.isEmpty(to))
+////                                MainActivity.openTop(LoginActivity.this);
+////                            else {
+////                                Intent intent = new Intent();
+////                                intent.setClassName(LoginActivity.this, to);
+////                                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+////                                startActivity(intent);
+////                            }
+////                        } else ShowToast.alertShortOfWhite(LoginActivity.this, ret.msg);
+//                    }
+//
+//                    public void onFailure(Call<LoginRet> call, Throwable t) {
+//                        dismissDialog();
+//                        t.printStackTrace();
+//                        ShowToast.alertShortOfWhite(LoginActivity.this, R.string.wangluoyichang);
+//                    }
+//                });
+            }
+        }
+    };
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -73,6 +119,9 @@ public class LoginActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
         setSwipeBackEnable(false);
+
+        IntentFilter filter = new IntentFilter(AppVc.WXLogin);
+        getActivity().registerReceiver(wxLoginReceiver, filter);
 
 //        editUserName.addTextChangedListener(new TextWatcher() {
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -88,6 +137,12 @@ public class LoginActivity extends BaseActivity {
 //                }
 //            }
 //        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(wxLoginReceiver);
     }
 
     public void onBackPressed() {
@@ -175,37 +230,16 @@ public class LoginActivity extends BaseActivity {
                     ShowToast.alertShortOfWhite(this, R.string.qtyyhxy);
                     return;
                 }
-                String code = "123456";
-                Call<LoginRet> wxLogin = BaseService.getInstance().getServiceUrl().wxLogin(code);
-                openLoadDialog(wxLogin);
-                wxLogin.enqueue(new Callback<LoginRet>() {
-                    public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
-                        dismissDialog();
-                        LoginRet ret = response.body();
-                        Sysout.out("==登录接口返回成功==");
-                        Sysout.v("--login--", ret.toString());
-                        if (ret.result) {
-                            LoginMode users = ret.data;
-                            AppVc.getAppVc().setLogin(true);
-                            AppVc.getAppVc().setLoginMode(users);
-                            // 跳转
-                            if (TextUtils.isEmpty(to))
-                                MainActivity.openTop(LoginActivity.this);
-                            else {
-                                Intent intent = new Intent();
-                                intent.setClassName(LoginActivity.this, to);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                            }
-                        } else ShowToast.alertShortOfWhite(LoginActivity.this, ret.msg);
-                    }
 
-                    public void onFailure(Call<LoginRet> call, Throwable t) {
-                        dismissDialog();
-                        t.printStackTrace();
-                        ShowToast.alertShortOfWhite(LoginActivity.this, R.string.wangluoyichang);
-                    }
-                });
+                // 调用微信授权登录
+                if (!AppVc.mWxApi.isWXAppInstalled()) {
+                    ShowToast.alertShortOfWhite(this, "您还未安装微信客户端");
+                    return;
+                }
+                final SendAuth.Req req = new SendAuth.Req();
+                req.scope = "snsapi_userinfo";
+                req.state = "diandi_wx_login";
+                AppVc.mWxApi.sendReq(req);
                 break;
         }
     }

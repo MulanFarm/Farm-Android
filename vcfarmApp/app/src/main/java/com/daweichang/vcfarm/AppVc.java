@@ -13,6 +13,9 @@ import com.daweichang.vcfarm.utils.FileOperateUtil;
 import com.daweichang.vcfarm.utils.GlideUtils;
 import com.daweichang.vcfarm.utils.ImgSelectConfig;
 import com.daweichang.vcfarm.utils.UserConfig;
+import com.daweichang.vcfarm.wxapi.Constants;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.xcc.mylibrary.OtherUtils;
 
 import java.net.InetAddress;
@@ -29,9 +32,12 @@ public class AppVc extends Application {
     public static final String terminalType = "android";
     public static final String Refresh = "com.daweichang.vcfarm.Refresh";
     public static final String Login = "com.daweichang.vcfarm.Login";
+    public static final String WXLogin = "com.daweichang.vcfarm.WXLogin";
+    public static final String WXLoginSuccess = "com.daweichang.vcfarm.WXLoginSuccess"; //微信登录授权成功
     private static AppVc appVc;
     private boolean isLogin = false;
     private String ip;
+    public static IWXAPI mWxApi;
 
     public static AppVc getAppVc() {
         return appVc;
@@ -43,6 +49,8 @@ public class AppVc extends Application {
         appVc = this;
 
         init();
+
+        registToWX();
     }
 
     protected void attachBaseContext(Context base) {
@@ -55,6 +63,13 @@ public class AppVc extends Application {
         //isLogin = true;//TODO 测试使用
         CrashHandler.getInstance().init(this);
         ImgSelectConfig.init(this);
+    }
+
+    private void registToWX() {
+        //AppConst.WEIXIN.APP_ID是指你应用在微信开放平台上的AppID，记得替换。
+        mWxApi = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        // 将该app注册到微信
+        mWxApi.registerApp(Constants.APP_ID);
     }
 
     public static boolean isLoginOut(Response response) {
