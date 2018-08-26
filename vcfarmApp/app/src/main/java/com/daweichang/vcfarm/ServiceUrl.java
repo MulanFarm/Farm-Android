@@ -40,6 +40,11 @@ public interface ServiceUrl {
 
     //------------------------用户接口------------------------>>>
     //@Field 必须要 @POST 和 @FormUrlEncoded
+    //微信登录
+    @FormUrlEncoded
+    @POST("wxLogin.php")
+    Call<LoginRet> wxLogin(@Field("code") String code);
+
     //登录
     @FormUrlEncoded
     @POST("user.php?m=login")

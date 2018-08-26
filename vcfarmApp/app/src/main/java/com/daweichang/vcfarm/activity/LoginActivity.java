@@ -25,6 +25,7 @@ import com.xcc.mylibrary.KeyBoardUtils;
 import com.xcc.mylibrary.OtherUtils;
 import com.xcc.mylibrary.Sysout;
 import com.xcc.mylibrary.TextUtils;
+import com.xcc.mylibrary.widget.photoView.RoundedImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +39,8 @@ import retrofit2.Response;
  * 登录界面
  */
 public class LoginActivity extends BaseActivity {
+    @BindView(R.id.wxLogin)
+    RoundedImageView wxLogin;
     @BindView(R.id.btnLogin)
     Button btnLogin;
     @BindView(R.id.editName)
@@ -94,7 +97,7 @@ public class LoginActivity extends BaseActivity {
 //        super.onBackPressed();
     }
 
-    @OnClick({R.id.btnLogin, R.id.textReg, R.id.textForget, R.id.textTreaty, R.id.textCheck})
+    @OnClick({R.id.wxLogin, R.id.btnLogin, R.id.textReg, R.id.textForget, R.id.textTreaty, R.id.textCheck})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.textReg:
@@ -139,6 +142,43 @@ public class LoginActivity extends BaseActivity {
                 Call<LoginRet> login = BaseService.getInstance().getServiceUrl().login(username, pwd);
                 openLoadDialog(login);
                 login.enqueue(new Callback<LoginRet>() {
+                    public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
+                        dismissDialog();
+                        LoginRet ret = response.body();
+                        Sysout.out("==登录接口返回成功==");
+                        Sysout.v("--login--", ret.toString());
+                        if (ret.result) {
+                            LoginMode users = ret.data;
+                            AppVc.getAppVc().setLogin(true);
+                            AppVc.getAppVc().setLoginMode(users);
+                            // 跳转
+                            if (TextUtils.isEmpty(to))
+                                MainActivity.openTop(LoginActivity.this);
+                            else {
+                                Intent intent = new Intent();
+                                intent.setClassName(LoginActivity.this, to);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        } else ShowToast.alertShortOfWhite(LoginActivity.this, ret.msg);
+                    }
+
+                    public void onFailure(Call<LoginRet> call, Throwable t) {
+                        dismissDialog();
+                        t.printStackTrace();
+                        ShowToast.alertShortOfWhite(LoginActivity.this, R.string.wangluoyichang);
+                    }
+                });
+                break;
+            case R.id.wxLogin://微信登录
+                if (!checkbox.isChecked()) {
+                    ShowToast.alertShortOfWhite(this, R.string.qtyyhxy);
+                    return;
+                }
+                String code = "123456";
+                Call<LoginRet> wxLogin = BaseService.getInstance().getServiceUrl().wxLogin(code);
+                openLoadDialog(wxLogin);
+                wxLogin.enqueue(new Callback<LoginRet>() {
                     public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
                         dismissDialog();
                         LoginRet ret = response.body();

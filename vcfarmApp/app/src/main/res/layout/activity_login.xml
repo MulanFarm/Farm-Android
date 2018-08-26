@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <com.xcc.mylibrary.widget.photoView.RoundedImageView
+        android:id="@+id/wxLogin"
         android:layout_width="@dimen/y157"
         android:layout_height="@dimen/y157"
         android:layout_marginTop="@dimen/y270"
