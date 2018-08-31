@@ -75,36 +75,36 @@ public class LoginActivity extends BaseActivity {
 
                 Log.d("微信授权登录code：","code = " + code);
 
-//                Call<LoginRet> wxLogin = BaseService.getInstance().getServiceUrl().wxLogin(code);
-//                openLoadDialog(wxLogin);
-//                wxLogin.enqueue(new Callback<LoginRet>() {
-//                    public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
-//                        dismissDialog();
-//                        LoginRet ret = response.body();
-//                        Sysout.out("==登录接口返回成功==");
-//                        Sysout.v("--login--", ret.toString());
-////                        if (ret.result) {
-////                            LoginMode users = ret.data;
-////                            AppVc.getAppVc().setLogin(true);
-////                            AppVc.getAppVc().setLoginMode(users);
-////                            // 跳转
-////                            if (TextUtils.isEmpty(to))
-////                                MainActivity.openTop(LoginActivity.this);
-////                            else {
-////                                Intent intent = new Intent();
-////                                intent.setClassName(LoginActivity.this, to);
-////                                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-////                                startActivity(intent);
-////                            }
-////                        } else ShowToast.alertShortOfWhite(LoginActivity.this, ret.msg);
-//                    }
-//
-//                    public void onFailure(Call<LoginRet> call, Throwable t) {
-//                        dismissDialog();
-//                        t.printStackTrace();
-//                        ShowToast.alertShortOfWhite(LoginActivity.this, R.string.wangluoyichang);
-//                    }
-//                });
+                Call<LoginRet> wxLogin = BaseService.getInstance().getServiceUrl().wxLogin(code);
+                openLoadDialog(wxLogin);
+                wxLogin.enqueue(new Callback<LoginRet>() {
+                    public void onResponse(Call<LoginRet> call, Response<LoginRet> response) {
+                        dismissDialog();
+                        LoginRet ret = response.body();
+                        Sysout.out("==登录接口返回成功==");
+                        Sysout.v("--login--", ret.toString());
+                        if (ret.result) {
+                            LoginMode users = ret.data;
+                            AppVc.getAppVc().setLogin(true);
+                            AppVc.getAppVc().setLoginMode(users);
+                            // 跳转
+                            if (TextUtils.isEmpty(to))
+                                MainActivity.openTop(LoginActivity.this);
+                            else {
+                                Intent intent = new Intent();
+                                intent.setClassName(LoginActivity.this, to);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        } else ShowToast.alertShortOfWhite(LoginActivity.this, ret.msg);
+                    }
+
+                    public void onFailure(Call<LoginRet> call, Throwable t) {
+                        dismissDialog();
+                        t.printStackTrace();
+                        ShowToast.alertShortOfWhite(LoginActivity.this, R.string.wangluoyichang);
+                    }
+                });
             }
         }
     };
